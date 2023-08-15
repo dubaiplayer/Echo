@@ -1,0 +1,74 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.text{
+  color: black
+}
+
+#title{
+  font-size: 80px;
+  text-align: left;
+  margin: 10%;
+}
+
+.signCard {
+  padding: 2em;
+}
+
+.homeButton{
+  background-color: blue;
+  display: block;
+  margin: 10px auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+}
+
+.subtext {
+  color: #888;
+}
+
+.texts{
+  text-align: left;
+  margin: 10%;
+}
+
+.post-container{
+  border-color: rgba(255, 249, 249, 0.761);
+  background-color: rgba(255, 249, 249, 0.761); 
+  height: 275px;
+  width: 1000px;
+}
+
+.profile-pic{
+  width: 50px;
+  height: 50px;
+}
+
+.new-post-input{
+  width: 500px;
+  height: 150px;
+  background-color: white;
+  color: black;
+}
+
+#signout{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.single-post{
+  color: black
+}
+
+.like{
+  border: none;
+  background-color: rgba(255, 249, 249, 0.761);
+}
+

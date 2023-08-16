@@ -62,6 +62,7 @@ export const Chat = () => {
                     <img className="profile-pic" src={posts.photo}></img>
                 </div>
                 <h4 className="single-post">{posts.text}</h4>
+                <h5 className="single-post">{posts.createdAt}</h5>
                 <button className="like" >❤️</button>
             </div>
         </div>)}</div>

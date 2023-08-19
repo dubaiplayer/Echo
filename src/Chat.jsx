@@ -2,7 +2,7 @@ import "./App.css"
 import { getAuth, signOut } from "firebase/auth";
 import Cookies from "universal-cookie"
 import { useEffect, useState } from 'react';
-import { addDoc, collection, serverTimestamp, onSnapshot, query, where } from "firebase/firestore"
+import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore"
 import { db } from "./Firebase"
 
 export const Chat = () => {
@@ -26,15 +26,16 @@ export const Chat = () => {
     }
 
     useEffect(() => {
-
-        const queryPosts = query(postsRef)
-        onSnapshot(queryPosts, (snapshot) => {
+        const queryPosts = query(postsRef,
+            orderBy("createdAt"))
+        const unsuscribe = onSnapshot(queryPosts, (snapshot) => {
             let posts = []
             snapshot.forEach((doc) => {
                 posts.push({...doc.data(), id:doc.id})
             })
             setPosts(posts)
         })
+        return () => unsuscribe()
     }, [])
 
     const handleSubmit = async (e) => {
@@ -62,7 +63,7 @@ export const Chat = () => {
                     <img className="profile-pic" src={posts.photo}></img>
                 </div>
                 <h4 className="single-post">{posts.text}</h4>
-                <h5 className="single-post">{posts.createdAt}</h5>
+                {/* <h5 className="single-post">{posts.createdAt}</h5> */}
                 <button className="like" >❤️</button>
             </div>
         </div>)}</div>

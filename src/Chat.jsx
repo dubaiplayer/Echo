@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore"
 import { db } from "./Firebase"
 
+
 export const Chat = () => {
     const cookies = new Cookies()
     const auth = getAuth();
@@ -69,7 +70,7 @@ export const Chat = () => {
         </div>)}</div>
 
         <form onSubmit={handleSubmit} className='new-post-form'>
-            <textarea className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
+            <textarea maxlength="200"className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
             </textarea>
             <button type="submit" className='post-button'>Post!</button>
             

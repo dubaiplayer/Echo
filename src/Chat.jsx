@@ -70,7 +70,7 @@ export const Chat = () => {
         </div>)}</div>
 
         <form onSubmit={handleSubmit} className='new-post-form'>
-            <textarea maxlength="200"className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
+            <textarea maxlength="500"className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
             </textarea>
             <button type="submit" className='post-button'>Post!</button>
             

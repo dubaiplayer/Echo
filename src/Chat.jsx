@@ -3,16 +3,20 @@ import { getAuth, signOut } from "firebase/auth";
 import Cookies from "universal-cookie"
 import { useEffect, useState } from 'react';
 import { addDoc, collection, serverTimestamp, onSnapshot, query, where, orderBy } from "firebase/firestore"
+// import { getStorage, ref, uploadBytes } from "firebase/storage";
 import { db } from "./Firebase"
 
 
 export const Chat = () => {
     const cookies = new Cookies()
     const auth = getAuth();
+    // const storage = getStorage();
 
     const [newPost, setNewPost] = useState("")
     const postsRef = collection(db, "posts")
     const [posts, setPosts] = useState([])
+
+    // const storageRef = ref(storage, `images/${newPost}`);
 
     const Signout = () => {
 
@@ -52,10 +56,19 @@ export const Chat = () => {
 
         setNewPost("")
     }
+
+    const scroll = () =>{
+        window.scrollTo(0, document.body.scrollHeight);
+    }
     
   return (
     <div>
-        <h1 id="title" className="text">Echo Feed</h1>
+        <div className="navbar">
+            <h1 id="title" className="text">Echo Feed</h1>
+            <button id="signout" className='homeButton' onClick={()=>{Signout()}}>Sign Out</button>
+            <button id="new-post-side-button" className="homeButton" onClick={()=>{scroll()}}>Go Down</button>
+        </div>
+
         <div>{posts.map((posts) => 
         <div key={posts.id} className="texts">
             <div className="post-container">
@@ -70,12 +83,11 @@ export const Chat = () => {
         </div>)}</div>
 
         <form onSubmit={handleSubmit} className='new-post-form'>
-            <textarea maxlength="500"className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
+            <textarea maxLength="500"className='new-post-input' onChange={(e) => setNewPost(e.target.value)} value={newPost}>
             </textarea>
+            {/* <input type="file" onChange={(res) => setNewPost(res.target.files[0])}></input> */}
             <button type="submit" className='post-button'>Post!</button>
-            
         </form>
-        <button id="signout" className='homeButton' onClick={()=>{Signout()}}>Sign Out</button>
     </div>
   )
 }

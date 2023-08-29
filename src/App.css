@@ -11,8 +11,23 @@
 
 #title{
   font-size: 80px;
-  text-align: left;
-  margin: 10%;
+  text-align: center;
+  margin: 0%;
+  top: 0;
+  right: 0;
+}
+
+.navbar{
+  position: sticky;
+  top: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(12.5px);
+  -webkit-backdrop-filter: blur(12.5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  height: 100px;
+  width: 100%;
 }
 
 .signCard {
@@ -43,6 +58,9 @@
   background-color: rgba(255, 249, 249, 0.761); 
   height: 275px;
   width: 1000px;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 .profile-pic{
@@ -58,7 +76,7 @@
 }
 
 #signout{
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -72,3 +90,8 @@
   background-color: rgba(255, 249, 249, 0.761);
 }
 
+.new-post-side-button{
+  position: sticky;
+  top: 0;
+  left: 0;
+}
